@@ -1,46 +1,109 @@
 # 🍕 Power BI Pizza Sales Dashboard with MySQL & Excel
 
-This project is an end-to-end **Sales Analytics Dashboard** built using **Power BI**, **MySQL**, and **Excel**. It visualizes pizza sales data to uncover key insights on performance, customer behavior, and product trends — helping businesses drive strategic decisions with data.
+A comprehensive business intelligence project that uses Power BI, MySQL, and Excel to uncover insights from pizza sales data. This dashboard visualizes real-world business KPIs such as revenue trends, top-selling items, customer preferences, and performance breakdowns — helping drive smarter decisions in the food retail industry.
 
 ---
 
-## Tools & Technologies Used
+##  Table of Contents
 
--  **Power BI** – for data visualization and dashboard creation
--  **MySQL** – for data querying, aggregation, and transformation
--  **Excel** – used for preliminary cleaning and data checks
--  **DAX (Data Analysis Expressions)** – to create calculated measures in Power BI
+1. [Project Overview](#-project-overview)
+2. [Data Sources](#-data-sources)
+3. [Data Cleaning & Preparation](#-data-cleaning--preparation)
+4. [Dashboard Features](#-dashboard-features)
+5. [Key Metrics & DAX Measures](#-key-metrics--dax-measures)
+6. [Screenshot](#-screenshot)
+7. [Results](#-results)
+8. [Recommendations](#-recommendations)
+9. [Tools Used](#️-tools-used)
 
----
-
-## 📁 Files Included
-
-| File | Description |
-|------|-------------|
-| `pizza_sales.csv` | Raw transactional pizza sales data |
-| `PIZZA PROJECT CODES.docx` | SQL queries used in MySQL |
-| `dax_measures.txt` | DAX formulas used in the dashboard |
-| `screenshots/dashboard_overview.png` | Dashboard visuals |
-| `README.md` | Project documentation |
 
 ---
 
-## 🧠 Key Metrics & KPIs
+##  Project Overview
 
-### ✅ SQL-Based Calculations (MySQL)
-```sql
+This project focuses on analyzing pizza sales data to extract valuable insights about sales performance, product popularity, order behavior, and business trends using a combination of SQL, Excel, and Power BI.
+
+---
+
+##  Data Sources
+
+- `pizza_sales.csv`: Raw transactional data of pizza orders  
+- SQL queries: Used to clean and analyze data in MySQL  
+- Power BI: Used to connect data sources and build visuals  
+
+---
+
+##  Data Cleaning & Preparation
+
+Performed in **MySQL** and **Power BI Power Query Editor**:
+- Removed nulls and duplicates
+- Parsed date columns
+- Standardized categories and size values
+- Aggregated data by time, pizza name, size, and category
+
+---
+
+## Dashboard Features
+
+- KPI Cards: Total Revenue, Total Orders, Average Order Value, Total Pizzas Sold
+- Charts: Daily/Monthly Orders, Category & Size Breakdown, Best/Least Selling Pizzas
+- Slicers: Pizza Category, Size, Date Range, Pizza Name
+- Tooltips, drill-throughs, and interactive filters
+
+---
+
+##  Key Metrics & DAX Measures
+
+Examples:
+```dax
 -- Total Revenue
-SELECT SUM(total_price) AS Total_Revenue FROM pizza_sales.pizza_sales;
+Total Revenue = SUM(pizza_sales[total_price])
 
 -- Average Order Value
-SELECT SUM(total_price)/COUNT(DISTINCT order_id) AS Average_Order_Value FROM pizza_sales.pizza_sales;
+Average Order Value = DIVIDE(SUM(pizza_sales[total_price]), DISTINCTCOUNT(pizza_sales[order_id]))
 
--- Total Pizzas Sold
-SELECT SUM(quantity) AS Total_Pizzas_Sold FROM pizza_sales.pizza_sales;
+-- % Sales by Category
+% Sales by Category = 
+    DIVIDE(SUM(pizza_sales[total_price]), CALCULATE(SUM(pizza_sales[total_price]), ALL(pizza_sales[category])))
+```
 
--- Total Orders
-SELECT COUNT(DISTINCT order_id) AS Total_Orders FROM pizza_sales.pizza_sales;
+*Full list in `dax_measures.txt`.*
 
--- Avg. Pizzas Per Order
-SELECT ROUND(SUM(quantity) / COUNT(DISTINCT order_id), 2) AS Avg_Pizzas_per_order FROM pizza_sales.pizza_sales;
+---
+
+##  Screenshot
+
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+---
+
+## 📈 Results
+
+-  Revenue is highest during weekends and in large-sized pizzas
+-  Top-selling pizzas include BBQ Chicken, Pepperoni Classic, and Deluxe
+-  Medium and Large sizes dominate sales
+-  Sales peak around lunchtime and dinner hours
+-  Certain pizza categories underperform consistently (e.g., Veggie Lovers)
+
+---
+
+## 📝 Recommendations
+
+- Promote best-selling pizzas with combo offers
+- Target promotions around peak lunch/dinner hours
+- Introduce limited-time offers for underperforming pizzas
+- Offer loyalty rewards for customers ordering large sizes
+- Use time-based analysis to optimize staffing and operations
+
+---
+
+## Tools Used
+
+- **Power BI** – Data visualization
+- **MySQL** – Data transformation and querying
+- **Excel** – Raw data inspection
+- **DAX** – Calculated columns & KPIs
+
+---
+
 
