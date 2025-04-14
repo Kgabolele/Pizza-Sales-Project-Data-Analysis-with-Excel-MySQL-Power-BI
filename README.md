@@ -6,15 +6,18 @@ A comprehensive business intelligence project that uses Power BI, MySQL, and Exc
 
 ##  Table of Contents
 
-1. [Project Overview](#-project-overview)
-2. [Data Sources](#-data-sources)
-3. [Data Cleaning & Preparation](#-data-cleaning--preparation)
-4. [Dashboard Features](#-dashboard-features)
-5. [Key Metrics & DAX Measures](#-key-metrics--dax-measures)
-6. [Screenshot](#-screenshot)
-7. [Results](#-results)
-8. [Recommendations](#-recommendations)
-9. [Tools Used](#️-tools-used)
+##  Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Data Sources](#data-sources)
+3. [Tools Used](#tools-used)
+4. [Data Cleaning & Preparation](#data-cleaning--preparation)
+5. [Dashboard Features](#dashboard-features)
+6. [Key Metrics & DAX Measures](#key-metrics--dax-measures)
+7. [Screenshot](#screenshot)
+8. [Results](#results)
+9. [Recommendations](#recommendations)
+   
 
 
 ---
