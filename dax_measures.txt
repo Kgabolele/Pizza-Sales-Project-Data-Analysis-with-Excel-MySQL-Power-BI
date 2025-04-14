@@ -1,0 +1,56 @@
+-- Total Revenue
+Total Revenue = SUM(pizza_sales[total_price])
+
+-- Average Order Value
+Average Order Value = 
+    DIVIDE(SUM(pizza_sales[total_price]), DISTINCTCOUNT(pizza_sales[order_id]))
+
+-- Total Pizzas Sold
+Total Pizzas Sold = SUM(pizza_sales[quantity])
+
+-- Total Orders
+Total Orders = DISTINCTCOUNT(pizza_sales[order_id])
+
+-- Average Pizzas Per Order
+Average Pizzas Per Order = 
+    DIVIDE([Total Pizzas Sold], [Total Orders])
+
+-- Daily Orders (for time trend)
+Daily Orders = COUNTROWS(pizza_sales)
+
+-- Monthly Orders (use with a month column from date table)
+Monthly Orders = 
+    CALCULATE([Total Orders], DATESMTD('Date'[Date]))
+
+-- % of Sales by Pizza Category
+% Sales by Category = 
+    DIVIDE(
+        SUM(pizza_sales[total_price]),
+        CALCULATE(SUM(pizza_sales[total_price]), ALL(pizza_sales[category]))
+    )
+
+-- % of Sales by Pizza Size
+% Sales by Size = 
+    DIVIDE(
+        SUM(pizza_sales[total_price]),
+        CALCULATE(SUM(pizza_sales[total_price]), ALL(pizza_sales[size]))
+    )
+
+-- Top 5 Pizzas by Revenue (use in visual filter or TopN)
+-- Create a measure:
+Pizza Revenue = SUM(pizza_sales[total_price])
+
+-- Top 5 Pizzas by Quantity
+Pizza Quantity = SUM(pizza_sales[quantity])
+
+-- Top 5 Pizzas by Orders
+Pizza Orders = DISTINCTCOUNT(pizza_sales[order_id])
+
+-- Bottom 5 Pizzas by Revenue
+-- Use same Pizza Revenue measure and set TopN filter direction to ASC
+
+-- Bottom 5 Pizzas by Quantity
+-- Use same Pizza Quantity measure and set TopN filter direction to ASC
+
+-- Bottom 5 Pizzas by Orders
+-- Use same Pizza Orders measure and set TopN filter direction to ASC
