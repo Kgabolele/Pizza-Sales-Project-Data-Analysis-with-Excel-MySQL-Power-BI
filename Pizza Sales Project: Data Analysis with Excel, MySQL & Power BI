@@ -1,0 +1,48 @@
+Pizza Sales Projects using Excel, MySQL and Power Bi  Codes 
+
+1.	Calculating Total Revenue
+
+SELECT sum(total_price) As Total_revenue FROM pizza_sales.pizza_sales;
+
+
+Output
+ 
+
+2.	Calculating  Average order Value 
+
+SELECT sum(total_price)/count(distinct order_id) AS Average_Order_Value  FROM pizza_sales.pizza_sales;
+
+Output
+ 
+
+3.	Calculating  Total Pizzas Sold
+SELECT sum(quantity)  As Total_Pizzas_Sold FROM pizza_sales.pizza_sales;
+
+
+Output
+ 
+
+4.	Calculating  Total orders
+
+SELECT COUNT(DISTINCT order_id) AS Total_Orders
+FROM pizza_sales.pizza_sales;
+
+
+
+Output
+
+5.	 Calculating  Average Pizzas Per Order 
+SELECT 
+ROUND(SUM(quantity) / COUNT(DISTINCT order_id), 2) AS Average_Pizzas_Per_Order
+FROM 
+pizza_sales.pizza_sales;
+
+Output
+ 
+6.	Average Pizzas Per Order
+SELECT 
+ROUND(SUM(quantity) / COUNT(DISTINCT order_id), 2) AS Avg_Pizzas_per_order
+FROM 
+pizza_sales.pizza_sales;
+
+ 
