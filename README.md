@@ -76,7 +76,8 @@ Average Order Value = DIVIDE(SUM(pizza_sales[total_price]), DISTINCTCOUNT(pizza_
 
 ##  Screenshot
 
-![Dashboard Overview](screenshots/dashboard_overview.png)
+![Dashboard Overview](V1.jpg)
+
 
 ---
 
