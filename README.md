@@ -36,6 +36,15 @@ This project focuses on analyzing pizza sales data to extract valuable insights 
 
 ---
 
+## Tools Used
+
+- **Power BI** – Data visualization
+- **MySQL** – Data transformation and querying
+- **Excel** – Raw data inspection
+- **DAX** – Calculated columns & KPIs
+
+---
+
 ##  Data Cleaning & Preparation
 
 Performed in **MySQL** and **Power BI Power Query Editor**:
@@ -101,13 +110,5 @@ Average Order Value = DIVIDE(SUM(pizza_sales[total_price]), DISTINCTCOUNT(pizza_
 
 ---
 
-## Tools Used
-
-- **Power BI** – Data visualization
-- **MySQL** – Data transformation and querying
-- **Excel** – Raw data inspection
-- **DAX** – Calculated columns & KPIs
-
----
 
 
